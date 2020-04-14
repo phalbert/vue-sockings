@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Socks</title>
     <link href="styles.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
 <body>
     
     <div class="nav-bar"></div>
     <div id="app">
-        <div class="cart">Cart {{ cart }}</div>
+        <div class="cart">Cart {{ cart.length }}</div>
         <product :premium='premium' @add-to-cart='updateCart'></product>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
     <script src="components/product.js"></script>
     <!-- main.js contains vue root app so it should come last since components need to be loaded before it -->
     <script src="main.js"></script>

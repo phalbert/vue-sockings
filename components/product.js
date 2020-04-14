@@ -28,7 +28,7 @@ Vue.component('product', {
             </div>
 
             <button @click='addToCart' 
-            :class='{ disabledButton: !inStock }'>Add</button>
+            :class='{ disabledButton: !inStock }' :disabled='!inStock'>Add</button>
             
         </div>
     </div>
@@ -41,14 +41,14 @@ Vue.component('product', {
             selectedVariant: 0,
             details: ['80% cotton', '20% polyster', 'Nylon'],
             variants: [
-                { name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg', color: 'blue', quantity: 13 },
-                { name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg', color: 'green', quantity: 0 }
+                { id: 1, name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg', color: 'blue', quantity: 13 },
+                { id: 2, name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg', color: 'green', quantity: 0 }
             ]
         };
     },
     methods: {
         addToCart() {
-            this.$emit('add-to-cart')
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
         },
         updateProductImage(variantIndex) {
             this.selectedVariant = variantIndex
@@ -64,7 +64,7 @@ Vue.component('product', {
         inStock() {
             return this.variants[this.selectedVariant].quantity
         },
-        shipping_fee(){
+        shipping_fee() {
             return this.premium ? 'Free' : '50'
         }
     },
