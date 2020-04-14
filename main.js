@@ -8,8 +8,8 @@ new Vue({
             details: ['80% cotton', '20% polyster', 'Nylon'],
             cart: 0,
             variants: [
-                { name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg' },
-                { name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg' }
+                { name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg', color: 'blue' },
+                { name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg', color: 'green' }
             ]
         };
     },

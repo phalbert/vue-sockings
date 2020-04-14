@@ -25,14 +25,14 @@
                     <li v-for='(detail, $detailIndex) in details' :key='$detailIndex'>{{ detail }}</li>
                 </ul>
 
-                <div v-for='(variant, $variantIndex) in variants' :key='$variantIndex'>
-                    <span style='background-color:gainsboro;'
-                    @mouseover='updateProductImage(variant.image)'
-                    >{{ variant.name }}
-                    </span><hr>
+                <div v-for='(variant, $variantIndex) in variants' :key='$variantIndex' class="color-box"
+                    :style='{backgroundColor: variant.color}'>
+                    <p @mouseover='updateProductImage(variant.image)'>{{ variant.name }}</p>
+                    <hr>
                 </div>
 
-                <button @click='addToCart'>Add</button>
+                <button @click='addToCart' 
+                :class='{ disabledButton: inventory<10 }'>Add</button>
                 <div class="cart">Cart {{ cart }}</div>
             </div>
         </div>
