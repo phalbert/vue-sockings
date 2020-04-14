@@ -22,4 +22,9 @@ new Vue({
             this.image = image
         }
     },
+    computed: {
+        title() {
+            return `${this.brand} ${this.product}`
+        }
+    },
 });
