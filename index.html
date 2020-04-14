@@ -9,36 +9,16 @@
 </head>
 
 <body>
+    
     <div class="nav-bar"></div>
     <div id="app">
-        <div class="product">
-            <div class="product-image">
-                <img :src="image" />
-            </div>
-            <div class="product-info">
-                <h1>{{ title }}</h1>
-                <p v-if="inStock">In Stock</p>
-                <p v-else="inStock">Out of Stock</p>
-
-                <ul>
-                    <li v-for='(detail, $detailIndex) in details' :key='$detailIndex'>{{ detail }}</li>
-                </ul>
-
-                <div v-for='(variant, variantIndex) in variants' :key='variantIndex' class="color-box"
-                    :style='{backgroundColor: variant.color}'>
-                    <p @mouseover='updateProductImage(variantIndex)'>{{ variant.name }}</p>
-                    <hr>
-                </div>
-
-                <button @click='addToCart' 
-                :class='{ disabledButton: !inStock }'>Add</button>
-                <div class="cart">Cart {{ cart }}</div>
-            </div>
-        </div>
-
+        <div class="cart">Cart {{ cart }}</div>
+        <product :premium='premium' @add-to-cart='updateCart'></product>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="components/product.js"></script>
+    <!-- main.js contains vue root app so it should come last since components need to be loaded before it -->
     <script src="main.js"></script>
 </body>
 
