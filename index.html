@@ -16,7 +16,8 @@
         <div class="cart">Cart {{ cart.length }}</div>
         <product :premium='premium' @add-to-cart='updateCart'></product>
     </div>
-
+    
+    <script src="components/product-tabs.js"></script>
     <script src="components/product-review.js"></script>
     <script src="components/product.js"></script>
     <!-- main.js contains vue root app so it should come last since components need to be loaded before it -->

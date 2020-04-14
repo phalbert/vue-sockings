@@ -29,18 +29,9 @@ Vue.component('product', {
 
             <button @click='addToCart' 
             :class='{ disabledButton: !inStock }' :disabled='!inStock'>Add</button>
+            <hr>
+            <product-tabs :reviews='reviews'></product-tabs>
 
-            <div>
-             <h2>Reviews</h2>
-             <ul>
-               <li v-for='(review, index) in reviews' :key='index'>
-                <p>{{ review.name }}</p>
-                <p>{{ review.rating }}</p>
-                <p>{{ review.review }}</p>
-               </li>
-             </ul>
-            </div>
-            <product-review @review-submitted='addReview'><product-review/>
             
         </div>
         
@@ -66,9 +57,6 @@ Vue.component('product', {
         updateProductImage(variantIndex) {
             this.selectedVariant = variantIndex
         },
-        addReview(review) {
-            this.reviews.push(review)
-        }
     },
     computed: {
         title() {
