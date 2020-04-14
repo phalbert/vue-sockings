@@ -4,8 +4,8 @@ new Vue({
         return {
             brand: 'Appcellon',
             product: 'Socks',
-            image: './assets/img/vmSocks-green-onWhite.jpg',
             inventory: 1,
+            selectedVariant: 0,
             details: ['80% cotton', '20% polyster', 'Nylon'],
             cart: 0,
             variants: [
@@ -18,13 +18,16 @@ new Vue({
         addToCart() {
             this.cart += 1
         },
-        updateProductImage(image) {
-            this.image = image
+        updateProductImage(variantIndex) {
+            this.selectedVariant = variantIndex
         }
     },
     computed: {
         title() {
             return `${this.brand} ${this.product}`
+        },
+        image() {
+            return this.variants[this.selectedVariant].image
         }
     },
 });

@@ -25,9 +25,9 @@
                     <li v-for='(detail, $detailIndex) in details' :key='$detailIndex'>{{ detail }}</li>
                 </ul>
 
-                <div v-for='(variant, $variantIndex) in variants' :key='$variantIndex' class="color-box"
+                <div v-for='(variant, variantIndex) in variants' :key='variantIndex' class="color-box"
                     :style='{backgroundColor: variant.color}'>
-                    <p @mouseover='updateProductImage(variant.image)'>{{ variant.name }}</p>
+                    <p @mouseover='updateProductImage(variantIndex)'>{{ variant.name }}</p>
                     <hr>
                 </div>
 
