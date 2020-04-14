@@ -2,6 +2,7 @@ new Vue({
     el: "#app",
     data() {
         return {
+            brand: 'Appcellon',
             product: 'Socks',
             image: './assets/img/vmSocks-green-onWhite.jpg',
             inventory: 1,
