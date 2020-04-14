@@ -9,8 +9,8 @@ new Vue({
             details: ['80% cotton', '20% polyster', 'Nylon'],
             cart: 0,
             variants: [
-                { name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg', color: 'blue' },
-                { name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg', color: 'green' }
+                { name: 'Blue', image: './assets/img/vmSocks-blue-onWhite.jpg', color: 'blue', quantity: 13 },
+                { name: 'Green', image: './assets/img/vmSocks-green-onWhite.jpg', color: 'green', quantity: 0 }
             ]
         };
     },
@@ -28,6 +28,9 @@ new Vue({
         },
         image() {
             return this.variants[this.selectedVariant].image
+        },
+        inStock() {
+            return this.variants[this.selectedVariant].quantity
         }
     },
 });
